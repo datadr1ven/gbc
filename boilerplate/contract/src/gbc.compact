@@ -1,0 +1,38 @@
+pragma language_version 0.17;
+
+import CompactStandardLibrary;
+
+// public state
+export ledger totalbalance: Bytes<32>;
+
+export ledger balances: Map<Bytes<32>, Bytes<32>>;
+
+witness latestResult(): Bytes<32>;
+
+witness secretKey(): Bytes<32>;
+
+export circuit getTotalBalance(): Bytes<32> {
+   return totalbalance;
+}
+
+export circuit getBalance(pk: Bytes<32>): Bytes<32> {
+   assert(balances.member(disclose(pk))==true, "Attempted to read balance of player not in table");
+   return balances.lookup(disclose(pk));
+}
+
+// transition function changing public state
+export circuit nextHole(): [] {
+
+  const player = disclose(publicKey(secretKey()));
+
+  if( !balances.member(player)){
+    balances.insert(player, 0 as Field as Bytes<32>);
+  }
+  const toAdd = disclose(latestResult()) as Field;
+  balances.insert(player, (balances.lookup(player) as Field) + toAdd as Bytes<32>);
+  totalbalance = ((totalbalance as Field) + toAdd) as Bytes<32>;
+}
+
+export circuit publicKey(sk: Bytes<32>): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>([pad(32, "gbc:pk:"), sk]);
+}
