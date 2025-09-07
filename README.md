@@ -2,9 +2,8 @@ This is a prototype put together for the Midnight Developer Challenge on dev.to.
 
 To use this repository:
 
-1. run 'npm install' at the top level directory
+start by runing 'npm install' at the top level directory
 
-2.
  - for the contract
    1. run 'npm install' from boilerplate/contract
    2. run 'npm compact' from boilerplate/contract
