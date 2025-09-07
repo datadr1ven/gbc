@@ -79,7 +79,6 @@ export const getCounterLedgerState = async (
 
 
 
-console.log('witnesses: ' + JSON.stringify(witnesses))
 export const counterContractInstance: CounterContract = new contractModule.Contract(witnesses);
 
 export const joinContract = async (
