@@ -1,4 +1,4 @@
-This is a prototype put together for the Midnight Developer Challenge on dev.to. Read about it [here](https://dev.to/datadr1ven/token-payout-based-on-private-information-848-temp-slug-8701763?preview=d4f5b5b3a543ba3ee48dc963dd156fc14fde4b3e800da58697491bbaf307080fb1ee621352fb03137ab5cc309751a160a0b9a628977e02f93e245236)
+This is a prototype put together for the Midnight Developer Challenge on dev.to. Read about it [here](https://dev.to/datadr1ven/token-payout-based-on-private-information-golf-barbecue-coin-gbc-38d5)
 
 To use this repository:
 
